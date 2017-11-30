@@ -142,9 +142,9 @@ public class FracCalc {
   public static String toString(int[] answer) {
   	String u = Arrays.toString(answer);
   	System.out.println(u);
-	  if(answer[1] > answer[2]) {
+	  if(answer[1] > answer[2] || absoluteValue(answer[1]) > answer[2]) {
   		answer = reduceFraction(answer);
-  		String convert = " " + answer[0] +  " " + answer[1] + " / "  + answer[2] + "";
+  		String convert = "" + answer[0] +"_"+ answer[1] +"/"+ answer[2] + "";
   		return convert;			
   	} else if (answer[1] == 0) {
   		return "" + answer[0] + "";
@@ -154,7 +154,7 @@ public class FracCalc {
   	}
   	else {
   		answer = reduceFraction(answer);
-  		String convert = "" + answer[1] + " / "  + answer[2] + "";
+  		String convert = "" + answer[1]+"/"+answer[2] + "";
   		return convert;
   	} 
   		
@@ -171,14 +171,21 @@ public class FracCalc {
 	  System.out.println(w);
 		answer[2] = answer[2] / gcf;
 	  	System.out.println(w);
-		answer[0] = answer[1] % answer[2];
+		answer[0] = answer[1] / answer[2];
+		answer[1] = answer[1] % answer[2];
 		System.out.println(w);
 		return answer;
   	} else {
-  		 int gcf = gcf(answer[1], answer[2]);
-  	  answer[1] = answer[1] % gcf;
-  		answer[2] = answer[2] % gcf;
+  		 String w = Arrays.toString(answer);
+  		int gcf = gcf(answer[1], answer[2]);
+  		System.out.println(gcf);
+  	  answer[1] = answer[1] / gcf;
+  	System.out.println(w);
+  		answer[2] = answer[2] / gcf;
+  		System.out.println(w);
   		answer[0] = answer[1] / answer[2];
+  		answer[1] = answer[1] % answer[2];
+  		System.out.println(w);
   		return answer;
   	}
   }
