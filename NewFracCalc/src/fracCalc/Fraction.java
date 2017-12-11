@@ -10,4 +10,7 @@ public class Fraction {
 		denominator = newDenominator;
 		whole = newWhole;
 	}
+	public void Parse() {
+		
+	}
 }
