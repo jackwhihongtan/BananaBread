@@ -66,7 +66,7 @@ public class FracCalc {
         Fraction Operon2 = new Fraction(fraction2[1], fraction2[2], fraction2[0]);
 		if (operatorSign.equals("+")) {
 			Fraction additionAns = Operon1.addition(Operon2);
-			String finalanswer = toString(answer);
+			
 			return finalanswer;
 		} else if(operatorSign.equals("-")) {
 			fraction2[1] = fraction2[1] * -1;

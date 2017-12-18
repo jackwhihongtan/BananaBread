@@ -141,7 +141,6 @@ public class FracCalc {
   }
   public static String toString(int[] answer) {
   	String u = Arrays.toString(answer);
-  	System.out.println(u);
 	  if(answer[1] > answer[2] || absoluteValue(answer[1]) > answer[2]) {
   		answer = reduceFraction(answer);
   		String convert = "" + answer[0] +"_"+ answer[1] +"/"+ answer[2] + "";

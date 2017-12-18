@@ -1,5 +1,7 @@
 package fracCalc;
 
+import java.util.Arrays;
+
 public class Fraction {
  private int numerator;
  private int denominator;
@@ -34,6 +36,45 @@ public class Fraction {
 	  	numerator = whole;
 	  	whole = 0;
 	  	denominator = fraction2[0];
+	}
+	public String toString(Fraction reduce) {
+		 if(numerator > denominator || absoluteValue(numerator) > denominator) {
+		  		reduce = reduceFraction(reduce);
+		  		String convert = "" + whole +"_"+ numerator +"/"+ denominator + "";
+		  		return convert;			
+		  	} else if (numerator == 0) {
+		  		return "" + whole + "";
+		  	} else if (denominator == 1) {
+		  		String convert = "" + numerator +  "";
+		  		return convert;
+		  	}
+		  	else {
+		  		reduce = reduceFraction(reduce);
+		  		String convert = "" + numerator +"/"+denominator+ "";
+		  		return convert;
+		  	}
+		  } 
+		 public Fraction reduceFraction(Fraction reduce) {
+			  if (numerator < 0) {
+				  numerator = numerator * -1;
+				  int gcf = gcf(numerator, denominator);
+				  numerator = numerator / gcf;
+				denominator = denominator / gcf;
+				whole = numerator / denominator;
+				numerator = numerator % denominator;
+				return answer;
+		  	} else {
+		  		int gcf = gcf(numerator, denominator);
+		  		System.out.println(gcf);
+		  	  numerator = numerator / gcf;
+		
+		  		denominator = denominator / gcf;
+		  	
+		  		whole = numerator / denominator;
+		  		numerator = numerator % denominator;
+		  		
+		  		return answer;
+		  	}
 	}
 	
 }
